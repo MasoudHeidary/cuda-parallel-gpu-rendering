@@ -149,7 +149,8 @@
 				1,
 				2,
 				3,
-				4
+				4,
+				5
 			]
 		}
 	],
@@ -179,6 +180,11 @@
 		{
 			"backtrace" : 2,
 			"path" : "mproject/ray.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "mproject/hit.h",
 			"sourceGroupIndex" : 1
 		}
 	],
