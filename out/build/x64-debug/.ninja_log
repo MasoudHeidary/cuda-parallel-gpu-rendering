@@ -1,0 +1,9 @@
+# ninja log v5
+2	4578	7484732064786055	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	7a610f3a55c94cc
+4581	5233	7484732067630839	mproject/mproject.exe	ac40f60eb80b1523
+3	3589	7484740623483928	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	7a610f3a55c94cc
+3589	3993	7484740624575799	mproject/mproject.exe	ac40f60eb80b1523
+2	2981	7484743084820304	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	7a610f3a55c94cc
+2981	3320	7484743085829906	mproject/mproject.exe	ac40f60eb80b1523
+3	3193	7484744271583006	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	7a610f3a55c94cc
+3194	3587	7484744272641502	mproject/mproject.exe	ac40f60eb80b1523
