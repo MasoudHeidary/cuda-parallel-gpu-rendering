@@ -48,7 +48,7 @@
 			{
 				"command" : 2,
 				"file" : 2,
-				"line" : 35,
+				"line" : 36,
 				"parent" : 3
 			},
 			{
@@ -152,7 +152,9 @@
 				4,
 				5,
 				6,
-				7
+				7,
+				8,
+				9
 			]
 		}
 	],
@@ -197,6 +199,16 @@
 		{
 			"backtrace" : 2,
 			"path" : "mproject/camera.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "mproject/plane.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "mproject/triangle.h",
 			"sourceGroupIndex" : 1
 		}
 	],

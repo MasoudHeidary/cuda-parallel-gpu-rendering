@@ -842,6 +842,9 @@
 		},
 		{
 			"path" : "mproject/CMakeLists.txt"
+		},
+		{
+			"path" : "mproject/basic.scene"
 		}
 	],
 	"kind" : "cmakeFiles",
