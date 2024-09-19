@@ -31,10 +31,9 @@ using namespace std;
         return 0;
 }
 #else
+    #include"_main.h"
     int main() {
-        
-        std::cout << "exit successfully" << std::endl;
-        return 0;
+        return _main();
         }
 #endif
 

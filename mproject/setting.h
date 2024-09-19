@@ -1,1 +1,1 @@
-#define CHECK_CMAKE true
+#define CHECK_CMAKE false
