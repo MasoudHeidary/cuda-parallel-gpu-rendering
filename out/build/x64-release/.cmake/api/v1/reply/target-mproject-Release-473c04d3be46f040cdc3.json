@@ -71,7 +71,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI"
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG -std:c++20"
 				}
 			],
 			"includes" : 
@@ -107,16 +107,16 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI",
+				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
+				"fragment" : "/machine:x64 /INCREMENTAL:NO /subsystem:console",
 				"role" : "flags"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "C:\\Users\\Masou\\Desktop\\GPU\\vcpkg\\installed\\x64-windows\\debug\\lib\\glm.lib",
+				"fragment" : "C:\\Users\\Masou\\Desktop\\GPU\\vcpkg\\installed\\x64-windows\\lib\\glm.lib",
 				"role" : "libraries"
 			},
 			{
@@ -153,8 +153,7 @@
 				5,
 				6,
 				7,
-				8,
-				9
+				8
 			]
 		}
 	],
@@ -193,22 +192,17 @@
 		},
 		{
 			"backtrace" : 2,
-			"path" : "mproject/sphere.h",
+			"path" : "mproject/gobject.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 2,
-			"path" : "mproject/camera.h",
+			"path" : "mproject/loader.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 2,
-			"path" : "mproject/plane.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 2,
-			"path" : "mproject/triangle.h",
+			"path" : "mproject/compute.h",
 			"sourceGroupIndex" : 1
 		}
 	],

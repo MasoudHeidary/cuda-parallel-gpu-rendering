@@ -845,6 +845,9 @@
 		},
 		{
 			"path" : "mproject/basic.scene"
+		},
+		{
+			"path" : "mproject/spheramid.scene"
 		}
 	],
 	"kind" : "cmakeFiles",
