@@ -1,7 +1,3 @@
 # ninja log v5
-3	6742	7485706738345285	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
-6746	7027	7485706738967429	mproject/mproject.exe	1c7378e35d6fab41
-7	6608	7485707089324935	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
-6609	6952	7485707090259585	mproject/mproject.exe	1c7378e35d6fab41
-3	6449	7485711949180945	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
-6450	6759	7485711949971596	mproject/mproject.exe	1c7378e35d6fab41
+3	6528	7485717261414787	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
+6532	6804	7485717262200292	mproject/mproject.exe	1c7378e35d6fab41
