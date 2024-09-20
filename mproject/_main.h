@@ -52,7 +52,7 @@ int _main(void) {
         return -1;
     }
 
-    #if OBJ_FILE_NAME
+    #ifdef OBJ_FILE_NAME
     // Load the OBJ file
     if (!load_obj(OBJ_FILE_NAME, triangles, glm::vec3(1.0, 1.0, 1.0))) {
         std::cerr << "Error loading OBJ file!\t" << OBJ_FILE_NAME << std::endl;
@@ -131,7 +131,7 @@ int _main(void) {
 
 
     std::string _file_name;
-#if OUTPUT_IMAGE_NAME
+#ifdef OUTPUT_IMAGE_NAME
     _file_name = OUTPUT_IMAGE_NAME;
 #else
      _file_name = (std::string)SCENE_FILE_NAME + ".bmp";
