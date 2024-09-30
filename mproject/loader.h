@@ -108,6 +108,19 @@ bool load_obj(const std::string& file_path, std::vector<Triangle>& triangles, co
             // OBJ file indices are 1-based, so we need to subtract 1 for 0-based indexing
             triangles.push_back(Triangle(vertices[idx0 - 1], vertices[idx1 - 1], vertices[idx2 - 1], color));
         }
+        //else if (prefix == "f") {
+        //    // Parse face with support for "//" (ignoring normals)
+        //    int idx0, idx1, idx2;
+        //    char dummy;  // For ignoring slashes and normal indices
+        //    iss >> idx0 >> dummy >> dummy >> std::ws;
+        //    iss >> idx1 >> dummy >> dummy >> std::ws;
+        //    iss >> idx2 >> dummy >> dummy >> std::ws;
+
+        //    // OBJ file indices are 1-based, so we need to subtract 1 for 0-based indexing
+        //    triangles.push_back(Triangle(vertices[idx0 - 1], vertices[idx1 - 1], vertices[idx2 - 1], color));
+        //}
     }
     return true;
 }
+
+

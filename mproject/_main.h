@@ -17,7 +17,8 @@ std::byte myByte = std::byte(0xFF);
 #include <cstdlib>  // run command on terminal
 #include <string>
 
-//#include <glm/glm.hpp>
+#include <chrono> // For high-resolution clock
+#include <iomanip> // For setting precision
 
 #include <tira/image.h>
 #include <tira/parser.h>
@@ -27,15 +28,10 @@ std::byte myByte = std::byte(0xFF);
 #include "loader.h"
 #include "compute.h"
 #include "gobject.h"
+
+
 using namespace GeoShape;
-
-
-
-
-
-
-
-
+using namespace std::chrono; // For convenient timing functions
 
 int _main(void) {
     std::vector<Sphere> spheres;
@@ -45,29 +41,35 @@ int _main(void) {
     Camera camera(glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), 0.0f);
     glm::vec3 background(0.0f, 0.0f, 0.0f);
 
-
     // Load scene from file using TIRA parser
     if (!load_scene(SCENE_FILE_NAME, spheres, planes, camera, lights, background)) {
         std::cerr << "Error loading scene!\t" << SCENE_FILE_NAME << std::endl;
         return -1;
     }
 
-    #ifdef OBJ_FILE_NAME
+#ifdef OBJ_FILE_NAME
     // Load the OBJ file
     if (!load_obj(OBJ_FILE_NAME, triangles, glm::vec3(1.0, 1.0, 1.0))) {
         std::cerr << "Error loading OBJ file!\t" << OBJ_FILE_NAME << std::endl;
         return -1;
     }
-    #endif
+#endif
 
     int image_width = IMAGE_WIDTH;
     int image_height = IMAGE_HEIGHT;
-    //float aspect_ratio = float(image_width) / float(image_height);
     tira::image<unsigned char> image(image_width, image_height, 3);  // 3 channels (RGB)
 
+    // High-resolution timers
+    auto start_time = high_resolution_clock::now();
+    double total_lighting_time = 0.0;
+    double total_pixel_time = 0.0;
+
+    // Render loop
     for (int j = 0; j < image_height; ++j) {
-        std::cout << "image height " << "[" << j << "/" << image_height << "]" << std::endl;
+        std::cout << "Rendering row " << "[" << j << "/" << image_height << "]" << std::endl;
         for (int i = 0; i < image_width; ++i) {
+            auto pixel_start_time = high_resolution_clock::now();  // Start timing pixel
+
             float u = float(image_width - 1 - i) / float(image_width - 1);
             float v = float(image_height - 1 - j) / (image_height - 1);  // Flip the v coordinate
 
@@ -116,31 +118,53 @@ int _main(void) {
             // Compute lighting and color based on the closest hit
             if (hit_anything) {
                 glm::vec3 point = ray.at(closest_hit_record.t);
+
+                // Measure lighting calculation time
+                auto lighting_start_time = high_resolution_clock::now();
                 glm::vec3 lighting = compute_lighting(point, closest_hit_record.normal, lights, spheres);
+                auto lighting_end_time = high_resolution_clock::now();
+
+                // Add to total lighting time
+                total_lighting_time += duration<double>(lighting_end_time - lighting_start_time).count();
+
                 pixel_color = glm::clamp(closest_hit_record.color * lighting, 0.0f, 1.0f);
             }
             else {
                 pixel_color = background;  // If no intersection, use the background color
             }
 
+            // Set pixel color in the image
             image(i, j, 0) = static_cast<unsigned char>(255.99 * pixel_color.r);
             image(i, j, 1) = static_cast<unsigned char>(255.99 * pixel_color.g);
             image(i, j, 2) = static_cast<unsigned char>(255.99 * pixel_color.b);
+
+            // Measure pixel calculation time
+            auto pixel_end_time = high_resolution_clock::now();
+            total_pixel_time += duration<double>(pixel_end_time - pixel_start_time).count();
         }
     }
 
+    // End total render time
+    auto end_time = high_resolution_clock::now();
+    double total_render_time = duration<double>(end_time - start_time).count();
+
+    // Output profiling results
+    std::cout << std::fixed << std::setprecision(6);
+    std::cout << "Total render time: " << total_render_time << " seconds" << std::endl;
+    std::cout << "Average time per pixel: " << total_pixel_time / (image_width * image_height) << " seconds" << std::endl;
+    std::cout << "Total lighting calculation time: " << total_lighting_time << " seconds" << std::endl;
+    std::cout << "Average lighting calculation time per pixel: " << total_lighting_time / (image_width * image_height) << " seconds" << std::endl;
 
     std::string _file_name;
 #ifdef OUTPUT_IMAGE_NAME
     _file_name = OUTPUT_IMAGE_NAME;
 #else
-     _file_name = (std::string)SCENE_FILE_NAME + ".bmp";
+    _file_name = (std::string)SCENE_FILE_NAME + ".bmp";
 #endif
-     image.save(_file_name);
+    image.save(_file_name);
 
-     // open the picture after saving
-     system(_file_name.c_str());
-    
+    // open the picture after saving
+    system(_file_name.c_str());
 
-	return 0;
+    return 0;
 }

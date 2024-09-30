@@ -1,5 +1,7 @@
 
 
+
+
 configure file
 ```c++
 #define CHECK_CMAKE false
@@ -36,3 +38,21 @@ output exmaple
 
 > mesh
 ![alt](mesh.bmp)
+
+```
+Profiling:
+
+for example for Sheramid we do have
+
+with no SHADOW:
+Total render time: 1.431968 seconds
+Average time per pixel: 0.000001 seconds
+Total lighting calculation time: 0.643970 seconds
+Average lighting calculation time per pixel: 0.000001 seconds
+
+with SHADOW:
+Total render time: 20.180865 seconds
+Average time per pixel: 0.000018 seconds
+Total lighting calculation time: 18.221199 seconds
+Average lighting calculation time per pixel: 0.000018 seconds
+```
