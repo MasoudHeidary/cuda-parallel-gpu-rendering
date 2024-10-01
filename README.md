@@ -54,7 +54,20 @@ lanuch.vs.json [setting for command line arguments]
 }
 ```
 
+command line arguments
+
+```
+--scene <string:scene_file_name>
+--obj <string:obj_file_name> [optional] 
+--out <string:out_file_name> [optional] [default: "output.bmp"]
+--threads <int:number_of_threads> [optional] [default: <all_cores_available>]
+--width <int:width_of_image> [optional] [default: 1000]
+--height <int:height_of_image> [optional] [default: 1000]
+--no-shadow [optional]
+```
+
 configure file
+
 ```c++
 #define CHECK_CMAKE false
 ```
@@ -104,6 +117,7 @@ Average lighting calculation time per pixel: 0.000000 seconds
 
 
 ----------
+
 <h2>Basic CPU Multi Threading</h2>
 
 <h3> Spheramid multithreading output would be: </h3>
