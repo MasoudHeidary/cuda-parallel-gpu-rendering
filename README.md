@@ -1,4 +1,5 @@
 
+<!-- 
 <style>
 /* General styles for all headers */
 h1, h2, h3, h4, h5, h6 {
@@ -33,11 +34,12 @@ h5, h6 {
     font-size: 1em; /* Smallest size for minor headers */
     font-style: italic; /* Italics for differentiation */
 }
-
 </style>
+ -->
 
 
-lanuch.vs.json [setting for command line arguments]
+<h2>lanuch.vs.json [setting for command line arguments]</h2>
+
 ```c++
 {
   "version": "0.2.1",
@@ -54,7 +56,7 @@ lanuch.vs.json [setting for command line arguments]
 }
 ```
 
-command line arguments
+<h2>command line arguments</h2>
 
 ```
 --scene <string:scene_file_name>
@@ -66,14 +68,15 @@ command line arguments
 --no-shadow [optional]
 ```
 
-configure file
+<h2>configure file</h2>
 
 ```c++
 #define CHECK_CMAKE false
 ```
 
 
-output exmaple
+<h1>output exmaple</h1>
+
 > basic
 ![alt](basic.bmp)
 
