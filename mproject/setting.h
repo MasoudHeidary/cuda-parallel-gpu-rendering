@@ -1,6 +1,7 @@
 #define CHECK_CMAKE false
 
-#define SHADOW_ENABLE false
+#define SHADOW_ENABLE true
+
 
 ////////////////////////////////////////////////////////////////////////////// input/output file config
 //compulsory

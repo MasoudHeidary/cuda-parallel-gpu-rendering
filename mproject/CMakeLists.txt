@@ -3,7 +3,7 @@
 #
 
 # Add source to this project's executable.
-add_executable (mproject "mproject.cpp" "mproject.h" "setting.h" "_main.h" "ray.h" "hit.h" "gobject.h" "loader.h" "compute.h")
+add_executable (mproject "mproject.cpp" "mproject.h" "setting.h" "_main.h" "ray.h" "hit.h" "gobject.h" "loader.h" "compute.h" "command_line_tool.h" "multi_thread_tool.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET mproject PROPERTY CXX_STANDARD 20)

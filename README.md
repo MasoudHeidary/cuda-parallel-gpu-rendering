@@ -37,30 +37,26 @@ h5, h6 {
 </style>
 
 
+lanuch.vs.json [setting for command line arguments]
+```c++
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "mproject.exe (mproject\\mproject.exe)",
+      "name": "mproject.exe (mproject\\mproject.exe)",
+      "args": ["--scene", "mesh.scene", "--obj", "subdiv.obj", "--threads", "12", "--shadow"]
+    },
+  ]
+}
+```
+
 configure file
 ```c++
 #define CHECK_CMAKE false
-
-#define SHADOW_ENABLE true
-
-//////////////////////////////////////////////////////////////////////////////
-// Input/Output File Config
-
-// Compulsory
-// #define SCENE_FILE_NAME "basic.scene"
-// #define SCENE_FILE_NAME "spheramid.scene"
-#define SCENE_FILE_NAME "mesh.scene"
-
-// Optional (or define a name)
-#define OBJ_FILE_NAME "subdiv.obj"
-
-// Optional (or define a name)
-// Default (SCENE_FILE_NAME + ".bmp")
-// #define OUTPUT_IMAGE_NAME "output.bmp"
-
-#define IMAGE_WIDTH 1000
-#define IMAGE_HEIGHT 1000
-
 ```
 
 
@@ -98,6 +94,7 @@ Average lighting calculation time per pixel: 0.000018 seconds
 
 
 <h3>mesh:</h3>
+
 ```
 Total render time: 267.880153 seconds  
 Average time per pixel: 0.000266 seconds  
@@ -131,18 +128,24 @@ Total render time: 4.794441 seconds
 <h3> Mesh multithreading output would be: </h3>
 
 ```
-number of threads: 12
-Thread 0 execution time: 39.6672 seconds
-Thread 1 execution time: 40.0822 seconds
-Thread 2 execution time: 40.1681 seconds
-Thread 3 execution time: 40.1895 seconds
-Thread 4 execution time: 40.3358 seconds
-Thread 5 execution time: 38.4706 seconds
-Thread 6 execution time: 38.0459 seconds
-Thread 7 execution time: 38.29 seconds
-Thread 8 execution time: 38.2326 seconds
-Thread 9 execution time: 38.3885 seconds
-Thread 10 execution time: 38.0327 seconds
-Thread 11 execution time: 40.9179 seconds
-Total render time: 40.950087 seconds
+scene file: mesh.scene
+obj file: subdiv.obj
+num threads: 12
+width: 1000
+height: 1000
+shadow: true
+
+Thread 0 execution time: 34.7879 seconds
+Thread 1 execution time: 35.2287 seconds
+Thread 2 execution time: 35.4175 seconds
+Thread 3 execution time: 34.9558 seconds
+Thread 4 execution time: 35.4999 seconds
+Thread 5 execution time: 34.0669 seconds
+Thread 6 execution time: 34.3035 seconds
+Thread 7 execution time: 34.5124 seconds
+Thread 8 execution time: 34.281 seconds
+Thread 9 execution time: 34.598 seconds
+Thread 10 execution time: 34.4974 seconds
+Thread 11 execution time: 36.2338 seconds
+Total render time: 36.255803 seconds
 ```
