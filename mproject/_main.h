@@ -50,7 +50,15 @@ int _main(int argc, char* argv[]) {
     }
     std::cout << cArg::__str__(args) << std::endl;
 
+    const std::string scene_file_name = args.scene_file;
+    const std::string obj_file_name = args.obj_file;
+    const std::string output_file_name = args.out_file;
+    const int image_width = args.width;
+    const int image_height = args.height;
     const bool shadow_enable = args.shadow;
+    const int num_threads = args.num_threads;
+
+     
 
     std::vector<Sphere> spheres;
     std::vector<Plane> planes;
@@ -58,29 +66,26 @@ int _main(int argc, char* argv[]) {
     std::vector<Light> lights;
     Camera camera(glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), 0.0f);
     glm::vec3 background(0.0f, 0.0f, 0.0f);
+    tira::image<unsigned char> image(image_width, image_height, 3);
 
-    if (!load_scene(args.scene_file, spheres, planes, camera, lights, background)) {
-        std::cerr << "Error loading scene!\t" << SCENE_FILE_NAME << std::endl;
+
+    if (!load_scene(scene_file_name, spheres, planes, camera, lights, background)) {
+        std::cerr << "Error loading scene!\t" << scene_file_name << std::endl;
         return -1;
     }
 
-    if (args.obj_file != "") {
-        if (!load_obj(OBJ_FILE_NAME, triangles, glm::vec3(1.0, 1.0, 1.0))) {
-            std::cerr << "Error loading OBJ file!\t" << OBJ_FILE_NAME << std::endl;
+    if (obj_file_name != "") {
+        if (!load_obj(obj_file_name, triangles, glm::vec3(1.0, 1.0, 1.0))) {
+            std::cerr << "Error loading OBJ file!\t" << obj_file_name << std::endl;
             return -1;
         }
     }
 
-    const int image_width = args.width;
-    const int image_height = args.height;
-    tira::image<unsigned char> image(image_width, image_height, 3);  // 3 channels (RGB)
 
-    // High-resolution timers
     auto start_time = high_resolution_clock::now();
     //double total_lighting_time = 0.0;
     //double total_pixel_time = 0.0;
 
-    unsigned int num_threads = args.num_threads;
     std::vector<std::thread> threads;
     std::vector<double> thread_execution_times(num_threads, 0.0);
 
@@ -211,16 +216,11 @@ int _main(int argc, char* argv[]) {
     //std::cout << "Total lighting calculation time: " << total_lighting_time << " seconds" << std::endl;
     //std::cout << "Average lighting calculation time per pixel: " << total_lighting_time / (image_width * image_height) << " seconds" << std::endl;
 
-    std::string _file_name;
-#ifdef OUTPUT_IMAGE_NAME
-    _file_name = OUTPUT_IMAGE_NAME;
-#else
-    _file_name = (std::string)SCENE_FILE_NAME + ".bmp";
-#endif
-    image.save(_file_name);
+
 
     // open the picture after saving
-    system(_file_name.c_str());
+    image.save(output_file_name); 
+    system(output_file_name.c_str());
 
     return 0;
 }

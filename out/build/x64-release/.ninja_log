@@ -1,3 +1,15 @@
 # ninja log v5
-3	6709	7494615853091259	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
-6714	7062	7494615854040539	mproject/mproject.exe	1c7378e35d6fab41
+3	6999	7495142223245010	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
+7003	7312	7495142223934776	mproject/mproject.exe	1c7378e35d6fab41
+4	6914	7495147831703626	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
+6915	7203	7495147832656809	mproject/mproject.exe	1c7378e35d6fab41
+3	6669	7495159196822616	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
+6669	6948	7495159197600721	mproject/mproject.exe	1c7378e35d6fab41
+4	6952	7495165405896418	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
+6952	7231	7495165406608612	mproject/mproject.exe	1c7378e35d6fab41
+3	6628	7495165902793300	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
+6628	6906	7495165903510117	mproject/mproject.exe	1c7378e35d6fab41
+3	6587	7495166090897104	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
+6588	6859	7495166091614339	mproject/mproject.exe	1c7378e35d6fab41
+3	6835	7495166611480507	mproject/CMakeFiles/mproject.dir/mproject.cpp.obj	55d89d9dbf3f081e
+6835	7112	7495166612190584	mproject/mproject.exe	1c7378e35d6fab41
