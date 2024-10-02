@@ -44,9 +44,17 @@ using namespace std::chrono; // For convenient timing functions
 
 int _main(int argc, char* argv[]) {
     cArg::CommandLineArgs args;
-    if (cArg::ErrorCode error_code = cArg::parse_arguments(&args, argc, argv)) {
-        std::cerr << "CommandLineArgs Error, " << cArg::get_error_description(error_code) << std::endl;
-        return error_code;
+    cArg::ErrorCode error_code = cArg::parse_arguments(&args, argc, argv);
+    
+    if (error_code) {
+        if (error_code == cArg::ErrorCode::HELP_REQUEST) {
+            std::cout << cArg::__help_str__() << std::endl;
+            return 0;
+        }
+        else {
+            std::cerr << "CommandLineArgs Error, " << cArg::get_error_description(error_code) << std::endl;
+            return error_code;
+        }
     }
     std::cout << cArg::__str__(args) << std::endl;
 
