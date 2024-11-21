@@ -37,24 +37,14 @@ h5, h6 {
 </style>
  -->
 
+<h2>compile command</h2>
 
-<h2>lanuch.vs.json [setting for command line arguments]</h2>
+run this command on the project directory. the compiled code and result will be in the out directory.
 
-```c++
-{
-  "version": "0.2.1",
-  "defaults": {},
-  "configurations": [
-    {
-      "type": "default",
-      "project": "CMakeLists.txt",
-      "projectTarget": "mproject.exe (mproject\\mproject.exe)",
-      "name": "mproject.exe (mproject\\mproject.exe)",
-      "args": ["--scene", "mesh.scene", "--obj", "subdiv.obj", "--threads", "12", "--shadow"]
-    },
-  ]
-}
+```console
+g++ -O3 -o out/main source/main.cpp `pkg-config --cflags --libs opencv4` && cd out && ./main --scene spheramid.scene && cd .. 
 ```
+
 
 <h2>command line arguments</h2>
 
@@ -67,13 +57,6 @@ h5, h6 {
 --height <int:height_of_image> [optional] [default: 1000]
 --no-shadow [optional]
 ```
-
-<h2>configure file</h2>
-
-```c++
-#define CHECK_CMAKE false
-```
-
 
 <h1>output exmaple</h1>
 
